@@ -216,17 +216,17 @@ function RegisterForm({ user }: { user: User }) {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           <CustomFormField
             control={form.control}
-            name="insuranceProvider"
-            label="Insurance Provider"
-            fieldType={FormFieldType.INPUT}
-            placeholder="BlueCross BlueShield"
+            name="allergies"
+            label="Allergies (if any)"
+            fieldType={FormFieldType.TEXTAREA}
+            placeholder="Peanuts, Penicillin, Pollan"
           />
           <CustomFormField
             control={form.control}
-            name="insurancePolicyNumber"
-            label="Insurance Policy Number"
-            fieldType={FormFieldType.INPUT}
-            placeholder="ABC123456789"
+            name="currentMedication"
+            label="Current Medication (if any)"
+            fieldType={FormFieldType.TEXTAREA}
+            placeholder="Ibuprofen 200mg, Paracetamol 500mg"
           />
         </div>
 
