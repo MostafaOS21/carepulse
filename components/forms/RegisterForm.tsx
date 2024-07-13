@@ -20,6 +20,7 @@ import { Label } from "../ui/label";
 import { SelectItem } from "../ui/select";
 import Image from "next/image";
 import FileUploader from "../FileUploader";
+import { registerPatient } from "@/lib/actions/patient.actions";
 
 function RegisterForm({ user }: { user: User }) {
   const router = useRouter();
@@ -38,7 +39,36 @@ function RegisterForm({ user }: { user: User }) {
   async function onSubmit(values: z.infer<typeof PatientFormValidation>) {
     setIsLoading(true);
 
+    let formData;
+
+    console.log("Submitting");
+
+    if (
+      values.identificationDocument &&
+      values.identificationDocument.length > 0
+    ) {
+      const blobFile = new Blob(values.identificationDocument, {
+        type: values.identificationDocument[0].type,
+      });
+
+      formData = new FormData();
+      formData.append("blobFile", blobFile);
+      formData.append("fileName", values.identificationDocument[0].name);
+    }
+
     try {
+      const patientData = {
+        ...values,
+        userId: user.$id,
+        birthDate: new Date(values.birthDate).toISOString(),
+        identificationDocument: formData,
+      };
+
+      console.log(patientData);
+      // @ts-ignore
+      const patient = await registerPatient(patientData);
+
+      if (patient) router.push(`/patient/${user.$id}/new-appointment`);
     } catch (error) {
       console.log(error);
     } finally {

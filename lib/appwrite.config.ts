@@ -12,17 +12,6 @@ export const APPOINTMENT_COLLECTION_ID =
 export const BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID;
 export const ENDPOINT = process.env.NEXT_PUBLIC_ENDPOINT;
 
-console.log({
-  PROJECT_ID,
-  API_KEY,
-  DATABASE_ID,
-  PATIENT_COLLECTION_ID,
-  DOCTOR_COLLECTION_ID,
-  APPOINTMENT_COLLECTION_ID,
-  BUCKET_ID,
-  ENDPOINT,
-});
-
 const client = new sdk.Client();
 
 client.setProject(PROJECT_ID!).setKey(API_KEY!).setEndpoint(ENDPOINT!);
