@@ -20,6 +20,8 @@ import DatePicker from "react-datepicker";
 import { Select, SelectContent, SelectTrigger } from "./ui/select";
 import { SelectValue } from "@radix-ui/react-select";
 import { Textarea } from "./ui/textarea";
+import { Checkbox } from "./ui/checkbox";
+import { Label } from "./ui/label";
 
 interface CustomFormFieldProps {
   control: Control<any>;
@@ -52,6 +54,7 @@ const RenderField = ({
     showTimeSelect,
     dateFormat,
     renderSkeleton,
+    label,
   } = props;
 
   switch (fieldType) {
@@ -140,6 +143,22 @@ const RenderField = ({
               {props.children}
             </SelectContent>
           </Select>
+        </FormControl>
+      );
+    case FormFieldType.CHECKBOX:
+      return (
+        <FormControl>
+          <div className="flex items-center gap-4">
+            <Checkbox
+              id={name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
+
+            <Label htmlFor={name} className="checkbox-label">
+              {label}
+            </Label>
+          </div>
         </FormControl>
       );
   }

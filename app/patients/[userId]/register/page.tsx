@@ -12,8 +12,8 @@ export default async function RegisterationPage({
 
   return (
     <div className="flex h-screen max-h-screen">
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px]">
+      <section className="remove-scrollbar container">
+        <div className="sub-container max-w-[860px]">
           <Image
             src="/assets/icons/logo-full.svg"
             width={1000}
@@ -23,6 +23,8 @@ export default async function RegisterationPage({
           />
 
           <RegisterForm user={user} />
+
+          <p className="copyright py-12">© 2024 carepulse</p>
         </div>
       </section>
 
