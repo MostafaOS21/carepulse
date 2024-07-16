@@ -150,8 +150,8 @@ const AppointmentForm = ({
             />
 
             <div
-              className={`flex flex-col gap-6  ${
-                type === "create" && "xl:flex-row"
+              className={`grid grid-cols-1 gap-6  ${
+                type === "create" && "xl:grid-cols-2"
               }`}
             >
               <CustomFormField
@@ -159,7 +159,7 @@ const AppointmentForm = ({
                 control={form.control}
                 name="reason"
                 label="Appointment reason"
-                placeholder="Annual montly check-up"
+                placeholder="Annual monthly check-up"
                 disabled={type === "schedule"}
               />
 

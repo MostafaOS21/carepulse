@@ -22,7 +22,7 @@ export default async function RegistrationPage({
 
           <RegisterForm user={user} />
 
-          <p className="copyright py-12">© 2024 carepulse</p>
+          <p className="copyright py-12"> &copy; 2024 carepulse</p>
         </div>
       </section>
 
