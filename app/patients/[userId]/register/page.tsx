@@ -3,7 +3,7 @@ import { getUser } from "@/lib/actions/patient.actions";
 import Image from "next/image";
 import React from "react";
 
-export default async function RegisterationPage({
+export default async function RegistrationPage({
   params: { userId },
 }: SearchParamsProps) {
   const user = await getUser(userId);

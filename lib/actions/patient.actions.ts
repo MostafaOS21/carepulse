@@ -25,6 +25,7 @@ export const createUser = async (user: CreateUserParams) => {
 
     return newUser;
   } catch (error) {
+    // @ts-ignore
     if (error && error?.code === 409) {
       const documents = await users.list([Query.equal("email", [user.email])]);
 
@@ -70,7 +71,6 @@ export const registerPatient = async ({
           identificationDocumentId: file?.$id || null,
         }
       );
-
       return parseStringify(newPatient);
     }
   } catch (error) {
@@ -86,7 +86,7 @@ export const getPatient = async (userId: string) => {
       [Query.equal("$id", userId)]
     );
 
-    return parseStringify(patient.documents[0]);
+    return parseStringify(patient.documents[0] || {});
   } catch (error) {
     console.log(error);
   }
