@@ -35,15 +35,7 @@ export const columns: ColumnDef<Appointment>[] = [
       <p className="text-14-medium">{row.original.patient.fullName}</p>
     ),
   },
-  {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <div className="min-w-[115px]">
-        <StatusBadge status={row.original.status as Status} />
-      </div>
-    ),
-  },
+
   {
     accessorKey: "schedule",
     header: "Appointment",
@@ -77,6 +69,15 @@ export const columns: ColumnDef<Appointment>[] = [
         </div>
       );
     },
+  },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => (
+      <div className="min-w-[115px]">
+        <StatusBadge status={row.original.status as Status} />
+      </div>
+    ),
   },
   {
     id: "actions",
